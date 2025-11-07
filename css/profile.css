@@ -1,0 +1,227 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('../aset/image/nusa3.jpg');
+}
+
+
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  background: transparent;
+}
+
+.navbar-logo {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.nav-btn {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Container */
+.profile-container {
+  max-width: 1000px;
+  margin: 6rem auto 2rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sections */
+.profile-section {
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  background: rgba(0, 0, 0, 0.5);
+
+  /* Tambahan untuk kompatibilitas */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+
+.profile-section.visible,
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+
+
+.aksara-bali {
+  font-family: 'Noto Sans Balinese', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInBali 2s ease-out forwards;
+  animation-delay: 2s; /* bisa disesuaikan */
+}
+
+.fade-bali:nth-child(2) {
+  animation-delay: 2.5s;
+}
+
+@keyframes fadeInBali {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Intro */
+.intro-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* Grids */
+.skills-grid,
+.showcase-grid,
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card,
+.showcase-card,
+.contact-item {
+  background: rgba(255,255,255,0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover,
+.showcase-card:hover,
+.contact-item:hover {
+  transform: scale(1.03);
+}
+
+.skill-card img,
+.showcase-card img,
+.contact-item img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+/* Social */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-icons a img {
+  width: 40px;
+  transition: transform 0.4s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.footer-container {
+  background-color: rgba(0, 0, 0, 0.3); /* transparan */
+  color: #fff;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.875rem;
+
+  /* Tambahan untuk kompatibilitas */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.footer-content p {
+  margin: 0.5rem 0;
+}
+
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .intro-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-pic {
+    margin-bottom: 1rem;
+  }
+
+  .nav-btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+

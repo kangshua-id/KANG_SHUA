@@ -1,0 +1,157 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Raleway', sans-serif;
+  background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+
+  /* Tambahkan prefix untuk Safari dan fallback */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+
+
+
+.logo {
+  font-size: 1.2rem;
+}
+.back {
+  color: #ccc;
+  text-decoration: none;
+}
+
+/* Sections */
+.tech {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.tech.active {
+  opacity: 1;
+}
+
+.tech video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.tech .content {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 12px;
+
+  /* Tambahkan prefix Safari dan fallback */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  text-align: center;
+  max-width: 600px;
+}
+
+
+
+main {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+section.tech {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  z-index: 1;
+}
+
+section .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.2;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Background khusus tiap section */
+section.html .background {
+  background-image: url('../aset/image/html.png'); /* ganti dengan gambar HTML kamu */
+  background-color: #e34c26;
+}
+
+section.css .background {
+  background-image: url('../aset/image/css.png'); /* ganti dengan gambar CSS kamu */
+  background-color: #264de4;
+}
+
+section.js .background {
+  background-image: url('../aset/image/js.png'); /* ganti dengan gambar JS kamu */
+  background-color: #f0db4f;
+}
+
+/* Konten */
+section .content {
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+
+  /* Tambahan untuk kompatibilitas */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+
+  /* Tambahan untuk kompatibilitas */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  font-size: 0.9rem;
+}
+
+
+
+

@@ -1,0 +1,250 @@
+/* ========== RESET & GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: url('../aset/image/laut.jpg') center/cover no-repeat fixed;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Scroll dihilangkan */
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(20, 20, 20, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem; /* atau sesuai spacing yang kamu mau */
+
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #f4a261; /* atau warna branding kamu */
+}
+
+
+
+/* ========== HERO SECTION ========== */
+.hero {
+  flex: 1;
+  padding: 100px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: transparent;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #fff;
+  width: 0;
+  animation: typing 2.5s steps(20) forwards, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+  color: #f0f0f0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.transisi-teks {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 2.8rem; /* pastikan cukup tinggi untuk teks panjang */
+  font-size: 1.2rem;
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+
+.transisi-teks span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  white-space: nowrap; /* agar tetap horizontal */
+  max-width: none;      /* biar nggak dibatasi */
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease, filter 1.5s ease;
+  filter: blur(4px);
+}
+
+.transisi-teks .active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  filter: blur(0);
+}
+
+.aksara-bali {
+  font-family: 'Noto Sans Balinese', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .transisi-teks {
+    font-size: 1rem;
+    min-height: 3.2rem;
+    white-space: normal;
+    max-width: 90%;
+  }
+
+  .aksara-bali {
+    font-size: 1rem;
+  }
+}
+
+
+.cta-button {
+  padding: 12px 24px;
+  background-color: rgba(20, 20, 20, 0.5);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #f4a261;
+}
+
+/* ========== FOOTER ========== */
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(20, 20, 20, 0.1);
+
+  /* Tambahkan prefix Safari dan fallback */
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+    background-color: transparent;
+    width: auto;
+  }
+
+  .nav-links li {
+    display: inline-block;
+  }
+
+  .nav-links li a {
+    font-size: 1rem;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding-top: 120px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    padding: 16px;
+  }
+}
+
+

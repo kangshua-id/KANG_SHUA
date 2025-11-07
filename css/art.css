@@ -1,0 +1,597 @@
+/* ====== BASE RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #2c3e50;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('../aset/image/nusa2.jpg');
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* bisa kamu ubah transparansinya */
+  z-index: -1;
+}
+
+/* ====== NAVBAR ====== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+.back {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+/* ====== HERO SECTION ====== */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  position: relative;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  background-image: url('../aset/image/nusa4.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 100vh; /* atau sesuai kebutuhan */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* transparansi gelap */
+  z-index: 1;
+}
+
+
+
+.hero-content {
+  flex: 1 1 400px;
+  padding-right: 2rem;
+    position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+.hero-image {
+  flex: 1 1 300px;
+  text-align: center;
+}
+.hero-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* ====== SECTIONS ====== */
+.section {
+  padding: 3rem 2rem;
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.section p, .section ul {
+  font-size: 1rem;
+  color: #ffffff;
+}
+.section ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+/* ====== GALLERY ====== */
+.gallery-section {
+  position: relative;
+  height: auto;
+  padding: 4rem 0;
+  overflow: hidden;
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+
+
+.gallery-overlay {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.gallery-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.gallery-header p {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.gallery-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gallery-grid img {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+}
+
+
+.gallery-grid::-webkit-scrollbar,
+.tools-list::-webkit-scrollbar {
+  height: 6px;
+}
+.gallery-grid::-webkit-scrollbar-thumb,
+.tools-list::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 3px;
+}
+
+.gallery-grid,
+.tools-list {
+  scroll-snap-type: x mandatory;
+    touch-action: pan-x;
+}
+
+.gallery-item,
+.tool-item {
+  scroll-snap-align: center;
+}
+
+.gallery-section,
+.app {
+  overflow-x: hidden;
+}
+
+
+.caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.hidden-caption {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  color: #fff;
+}
+
+.hidden-caption.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ====== app ====== */
+
+.tools-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+    padding-left: 0;
+}
+
+.tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0; /* untuk animasi GSAP */
+  transform: translateY(30px);
+}
+
+.tool-logo {
+  width: 48px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.tool-logo:hover {
+  transform: scale(1.1);
+}
+
+
+/* === story === */
+
+.storytelling {
+  background-image: url('../aset/image/nusa3.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: white;
+}
+
+
+.story-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.kangshua-illustration {
+  position: relative;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.kangshua-illustration img {
+  width: 300px;
+  filter: blur(8px);
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 1.2s ease;
+}
+
+/* Overlay di bawah gambar */
+.overlay-slang {
+  position: absolute;
+  bottom: -3rem; /* geser ke bawah gambar */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 0 6px rgba(0,0,0,0.4);
+  pointer-events: none;
+}
+
+.slang-text {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.aksara-bali {
+  font-family: 'Noto Sans Balinese', sans-serif;
+  font-size: 1.6rem;
+}
+
+
+/* ===== Sentuhan Budaya ===== */
+.section.culture {
+  position: relative;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.tenun-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../aset/image/tenun2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.section.culture .container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.culture-heading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.culture-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #333;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+
+
+/* ====== CTA BUTTONS ====== */
+.cta {
+  text-align: center;
+}
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  background-color: #7f8c8d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background-color: #95a5a6;
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+
+
+/* ====== RESPONSIVE: Tablet & Mobile (≤768px) ====== */
+@media (max-width: 768px) {
+
+  body {
+    background: linear-gradient(to bottom, #1a1a1a, #2c3e50);
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(to right, #1a1a1a, #2c3e50);
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    background-image: none;
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    height: auto;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    margin-top: 2rem;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+
+  .gallery-section {
+    background-image: none;
+    background: linear-gradient(to bottom, #2c3e50, #3b5998);
+  }
+
+  .gallery-grid {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .gallery-item {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+
+  .gallery-grid img {
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .tools-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    gap: 1.5rem;
+    background: linear-gradient(to right, #34495e, #2c3e50);
+  }
+
+  .tool-item {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    text-align: center;
+  }
+
+  .tool-logo {
+    width: 48px;
+  }
+
+  .tool-item span {
+    font-size: 0.9rem;
+  }
+
+  .storytelling {
+    background-image: none;
+    background: linear-gradient(to bottom, #34495e, #2c3e50);
+  }
+
+  .kangshua-illustration img {
+    width: 80%;
+    max-width: 280px;
+  }
+
+  .overlay-slang {
+    font-size: 1.2rem;
+    bottom: -2rem;
+  }
+
+  .culture-heading {
+    font-size: 1.6rem;
+  }
+
+  .culture-text {
+    font-size: 1rem;
+    color: #f0f0f0;
+  }
+
+  .section.culture {
+    background: linear-gradient(to bottom, #1a1a1a, #2c3e50);
+  }
+
+  .section.culture .tenun-bg {
+    display: none;
+  }
+
+  .cta {
+    background: linear-gradient(to right, #2c3e50, #1a1a1a);
+    text-align: center;
+  }
+
+  .btn {
+    width: 80%;
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+
+/* ====== RESPONSIVE: Extra Small Devices (≤480px) ====== */
+@media (max-width: 480px) {
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .section h2,
+  .gallery-header h2,
+  .culture-heading {
+    font-size: 1.4rem;
+  }
+
+  .section p,
+  .gallery-header p,
+  .culture-text {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .tool-logo {
+    width: 40px;
+  }
+
+  .overlay-slang {
+    font-size: 1rem;
+  }
+
+  .aksara-bali {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+
