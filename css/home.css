@@ -6,16 +6,14 @@
 }
 
 html, body {
-  height: 100%;
-}
-
-body {
+  width: 100%;
+  height: 100vh; /* penuh layar */
+  overflow: hidden; /* hilangkan scroll */
   font-family: 'Raleway', sans-serif;
-  background: url('../aset/image/laut.jpg') center/cover no-repeat fixed;
+  background: linear-gradient(135deg, #3c3d3f, #090a0b); /* gradasi warna */
   color: #fff;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Scroll dihilangkan */
 }
 
 /* ========== NAVBAR ========== */
@@ -26,6 +24,8 @@ body {
   width: 100%;
   padding: 16px 32px;
   display: flex;
+  flex-direction: row;   /* selalu sejajar */
+  flex-wrap: nowrap;     /* cegah turun */
   justify-content: space-between;
   align-items: center;
   background-color: rgba(20, 20, 20, 0.3);
@@ -35,13 +35,20 @@ body {
   z-index: 1000;
 }
 
+.logo {
+  font-size: 1.6rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
 .nav-links {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
-  gap: 2rem; /* atau sesuai spacing yang kamu mau */
-
+  flex-direction: row;
+  flex-wrap: nowrap; /* cegah turun */
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .nav-links li a {
@@ -52,10 +59,8 @@ body {
 }
 
 .nav-links li a:hover {
-  color: #f4a261; /* atau warna branding kamu */
+  color: #f4a261;
 }
-
-
 
 /* ========== HERO SECTION ========== */
 .hero {
@@ -65,16 +70,13 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: transparent;
 }
 
-.hero-content h1 {
+.hero-content h1.typing {
   font-size: 2.8rem;
   margin-bottom: 16px;
   font-weight: 800;
-  color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  text-align: center;
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid #fff;
@@ -91,22 +93,11 @@ body {
   50% { border-color: transparent }
 }
 
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 24px;
-  color: #f0f0f0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.transisi-teks {
+.hero-content p.transisi-teks {
   position: relative;
   width: 100%;
-  height: auto;
-  min-height: 2.8rem; /* pastikan cukup tinggi untuk teks panjang */
+  min-height: 2.8rem;
   font-size: 1.2rem;
-  font-family: 'Raleway', sans-serif;
-  color: #fff;
-  text-align: center;
   margin-bottom: 24px;
   max-width: 800px;
 }
@@ -117,9 +108,7 @@ body {
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   opacity: 0;
-  white-space: nowrap; /* agar tetap horizontal */
-  max-width: none;      /* biar nggak dibatasi */
-  transition: opacity 1.5s ease, transform 1.5s ease;
+  white-space: nowrap;
   transition: opacity 1.5s ease, transform 1.5s ease, filter 1.5s ease;
   filter: blur(4px);
 }
@@ -137,20 +126,7 @@ body {
   color: #fff;
 }
 
-@media (max-width: 768px) {
-  .transisi-teks {
-    font-size: 1rem;
-    min-height: 3.2rem;
-    white-space: normal;
-    max-width: 90%;
-  }
-
-  .aksara-bali {
-    font-size: 1rem;
-  }
-}
-
-
+/* CTA Button */
 .cta-button {
   padding: 12px 24px;
   background-color: rgba(20, 20, 20, 0.5);
@@ -166,85 +142,59 @@ body {
 }
 
 /* ========== FOOTER ========== */
-
 .footer {
   text-align: center;
   padding: 20px;
   background-color: rgba(20, 20, 20, 0.1);
-
-  /* Tambahkan prefix Safari dan fallback */
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
   font-size: 0.9rem;
   color: #ccc;
 }
 
-
 /* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 20px;
-  }
-
-  .logo {
-    font-size: 1.4rem;
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0;
-    background-color: transparent;
-    width: auto;
-  }
-
-  .nav-links li {
-    display: inline-block;
-  }
-
-  .nav-links li a {
-    font-size: 1rem;
-    padding: 8px 12px;
-    white-space: nowrap;
-  }
-
-  .hero {
-    padding-top: 120px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-    line-height: 1.3;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .cta-button {
-    font-size: 0.95rem;
-    padding: 10px 20px;
-  }
-
-  .footer {
-    font-size: 0.8rem;
-    padding: 16px;
-  }
+@media (max-width: 1200px) {
+  .hero-content h1.typing { font-size: 2.4rem; }
+  .hero-content p.transisi-teks { font-size: 1.1rem; }
 }
+
+@media (max-width: 992px) {
+  .navbar { padding: 12px 20px; }
+  .hero { padding-top: 100px; }
+  .hero-content h1.typing { font-size: 2.2rem; }
+  .hero-content p.transisi-teks { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 12px 16px; }
+  .logo { font-size: 1.4rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links li a { font-size: 0.95rem; }
+  .hero { padding-top: 100px; }
+  .hero-content h1.typing { font-size: 1.8rem; }
+  .hero-content p.transisi-teks { font-size: 0.95rem; }
+  .cta-button { font-size: 0.9rem; padding: 8px 16px; }
+  .footer { font-size: 0.8rem; }
+}
+
+@media (max-width: 576px) {
+  .navbar { padding: 10px 14px; }
+  .nav-links { gap: 0.8rem; }
+  .hero { padding-top: 80px; }
+  .hero-content h1.typing { font-size: 1.6rem; }
+  .hero-content p.transisi-teks { font-size: 0.9rem; }
+  .cta-button { font-size: 0.85rem; padding: 8px 14px; }
+  .footer { font-size: 0.75rem; }
+}
+
+@media (max-width: 400px) {
+  .hero-content h1.typing { font-size: 1.4rem; }
+  .hero-content p.transisi-teks { font-size: 0.85rem; }
+  .cta-button { font-size: 0.8rem; padding: 6px 12px; }
+  .footer { font-size: 0.7rem; }
+}
+
+
 
 
