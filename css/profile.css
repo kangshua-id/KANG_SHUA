@@ -1,3 +1,8 @@
+
+
+
+
+
 /* Reset & Base */
 * {
   box-sizing: border-box;
@@ -12,10 +17,8 @@ body, html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-   background: linear-gradient(135deg, #25081c, #090a0b); /* gradasi warna */
+  background: linear-gradient(135deg, #000000, #1a1a1a); /* gradasi hitam elegan */
 }
-
-
 
 /* Navbar */
 .navbar {
@@ -31,12 +34,14 @@ body, html {
   justify-content: space-between;
   align-items: center;
   z-index: 10;
-  background: transparent;
+  background: rgba(0,0,0,0.6); /* transparan hitam */
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
 .navbar-logo {
   font-size: 1.4rem;
-  color: #fff;
+  color: #ffcc00; /* kuning Nat Geo */
 }
 
 .nav-btn {
@@ -46,11 +51,12 @@ body, html {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   white-space: nowrap;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .nav-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 204, 0, 0.2);
+  color: #ffcc00;
 }
 
 /* Container */
@@ -68,16 +74,12 @@ body, html {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  background: rgba(0, 0, 0, 0.5);
-
-  /* Tambahan untuk kompatibilitas */
+  background: rgba(255, 204, 0, 0.05); /* transparan kuning */
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-
   border-radius: 12px;
   padding: 2rem;
 }
-
 
 .profile-section.visible,
 .fade-in.visible {
@@ -90,15 +92,14 @@ body, html {
 .delay-3 { transition-delay: 0.6s; }
 .delay-4 { transition-delay: 0.8s; }
 
-
 .aksara-bali {
   font-family: 'Noto Sans Balinese', sans-serif;
   font-size: 1rem;
-  color: #fff;
+  color: #ffcc00;
   opacity: 0;
   transform: translateY(10px);
   animation: fadeInBali 2s ease-out forwards;
-  animation-delay: 2s; /* bisa disesuaikan */
+  animation-delay: 2s;
 }
 
 .fade-bali:nth-child(2) {
@@ -111,7 +112,6 @@ body, html {
     transform: translateY(0);
   }
 }
-
 
 /* Intro */
 .intro-wrapper {
@@ -126,7 +126,7 @@ body, html {
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+  box-shadow: 0 0 10px rgba(255,204,0,0.5);
 }
 
 /* Grids */
@@ -145,13 +145,14 @@ body, html {
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .skill-card:hover,
 .showcase-card:hover,
 .contact-item:hover {
   transform: scale(1.03);
+  background: rgba(255,204,0,0.1);
 }
 
 .skill-card img,
@@ -172,40 +173,37 @@ body, html {
 .social-icons a img {
   width: 40px;
   transition: transform 0.4s ease;
+  filter: brightness(0) invert(1);
 }
 
 .social-icons a:hover img {
   transform: scale(1.2) rotate(5deg);
+  filter: none;
 }
 
+/* Footer */
 .footer-container {
-  background-color: rgba(0, 0, 0, 0.3); /* transparan */
+  background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
   text-align: center;
   padding: 1rem 2rem;
   font-family: 'Raleway', sans-serif;
   font-size: 0.875rem;
-
-  /* Tambahan untuk kompatibilitas */
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
-
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid #ffcc00;
 }
-
 
 .footer-content p {
   margin: 0.5rem 0;
 }
-
-
 
 /* Responsive Final */
 
 /* Extra small devices (max-width: 480px) */
 @media (max-width: 480px) {
   .navbar {
-    flex-direction: row; /* tetap sejajar */
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem 1rem;
@@ -254,7 +252,7 @@ body, html {
 /* Small devices (481px - 768px) */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: row; /* tetap sejajar */
+    flex-direction: row;
     justify-content: space-between;
     padding: 1rem;
   }
@@ -346,7 +344,36 @@ body, html {
   .showcase-grid,
   .contact-grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .intro-wrapper {
+    gap: 2rem;
+  }
+
+  .profile-pic {
+    width: 160px;
+    height: 160px;
+  }
+
+  .profile-section {
+    padding: 2.5rem;
+  }
+
+  .social-icons a img {
+    width: 48px;
+  }
+
+  .footer-container {
+    font-size: 1rem;
+    padding: 1.5rem 3rem;
   }
 }
+
+
+
+
+
+
 
 

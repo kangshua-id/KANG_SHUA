@@ -1,3 +1,5 @@
+
+
 /* ========== RESET & GLOBAL ========== */
 * {
   margin: 0;
@@ -10,7 +12,7 @@ html, body {
   height: 100vh; /* penuh layar */
   overflow: hidden; /* hilangkan scroll */
   font-family: 'Raleway', sans-serif;
-  background: linear-gradient(135deg, #3c3d3f, #090a0b); /* gradasi warna */
+  background: linear-gradient(135deg, #000000, #1a1a1a); /* gradasi NatGeo */
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -28,16 +30,16 @@ html, body {
   flex-wrap: nowrap;     /* cegah turun */
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(20, 20, 20, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   z-index: 1000;
 }
 
 .logo {
   font-size: 1.6rem;
-  color: #fff;
+  color: #FFD700; /* kuning NatGeo */
   flex-shrink: 0;
 }
 
@@ -59,7 +61,7 @@ html, body {
 }
 
 .nav-links li a:hover {
-  color: #f4a261;
+  color: #FFD700;
 }
 
 /* ========== HERO SECTION ========== */
@@ -76,10 +78,10 @@ html, body {
   font-size: 2.8rem;
   margin-bottom: 16px;
   font-weight: 800;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid #fff;
+  border-right: 2px solid #FFD700;
   width: 0;
   animation: typing 2.5s steps(20) forwards, blink 0.7s step-end infinite;
 }
@@ -129,58 +131,77 @@ html, body {
 /* CTA Button */
 .cta-button {
   padding: 12px 24px;
-  background-color: rgba(20, 20, 20, 0.5);
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #FFD700;
   text-decoration: none;
   font-weight: 600;
   border-radius: 6px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #f4a261;
+  background-color: #FFD700;
+  color: #000;
 }
 
 /* ========== FOOTER ========== */
 .footer {
   text-align: center;
   padding: 20px;
-  background-color: rgba(20, 20, 20, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
   font-size: 0.9rem;
   color: #ccc;
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========== RESPONSIVE FINAL ========== */
+
+/* Desktop besar */
+@media (max-width: 1400px) {
+  .hero-content h1.typing { font-size: 2.6rem; }
+  .hero-content p.transisi-teks { font-size: 1.2rem; }
+}
+
+/* Laptop */
 @media (max-width: 1200px) {
+  .navbar { padding: 14px 28px; }
   .hero-content h1.typing { font-size: 2.4rem; }
   .hero-content p.transisi-teks { font-size: 1.1rem; }
 }
 
+/* Tablet landscape */
 @media (max-width: 992px) {
   .navbar { padding: 12px 20px; }
+  .logo { font-size: 1.5rem; }
+  .nav-links li a { font-size: 1rem; }
   .hero { padding-top: 100px; }
   .hero-content h1.typing { font-size: 2.2rem; }
   .hero-content p.transisi-teks { font-size: 1rem; }
+  .cta-button { font-size: 1rem; padding: 10px 20px; }
+  .footer { font-size: 0.85rem; }
 }
 
+/* Tablet portrait */
 @media (max-width: 768px) {
   .navbar { padding: 12px 16px; }
   .logo { font-size: 1.4rem; }
-  .nav-links { gap: 1rem; }
+  .nav-links { gap: 0.8rem; }
   .nav-links li a { font-size: 0.95rem; }
-  .hero { padding-top: 100px; }
-  .hero-content h1.typing { font-size: 1.8rem; }
+  .hero { padding-top: 90px; }
+  .hero-content h1.typing { font-size: 1.9rem; }
   .hero-content p.transisi-teks { font-size: 0.95rem; }
   .cta-button { font-size: 0.9rem; padding: 8px 16px; }
   .footer { font-size: 0.8rem; }
 }
 
+/* Smartphone */
 @media (max-width: 576px) {
   .navbar { padding: 10px 14px; }
-  .nav-links { gap: 0.8rem; }
+  .logo { font-size: 1.3rem; }
+  .nav-links { gap: 0.6rem; }
+  .nav-links li a { font-size: 0.9rem; }
   .hero { padding-top: 80px; }
   .hero-content h1.typing { font-size: 1.6rem; }
   .hero-content p.transisi-teks { font-size: 0.9rem; }
@@ -188,12 +209,21 @@ html, body {
   .footer { font-size: 0.75rem; }
 }
 
+/* Extra small smartphone */
 @media (max-width: 400px) {
+  .navbar { padding: 8px 12px; }
+  .logo { font-size: 1.2rem; }
+  .nav-links li a { font-size: 0.85rem; }
+  .hero { padding-top: 70px; }
   .hero-content h1.typing { font-size: 1.4rem; }
   .hero-content p.transisi-teks { font-size: 0.85rem; }
   .cta-button { font-size: 0.8rem; padding: 6px 12px; }
   .footer { font-size: 0.7rem; }
 }
+
+
+
+
 
 
 
